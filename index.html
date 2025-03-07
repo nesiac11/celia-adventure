@@ -4,105 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Girl and The Meowgic</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=IM+Fell+English&display=swap');
-        .text-watermark {
-            animation: floatEffect 3s ease-in-out infinite;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4vw; /* Scales based on screen width */
-            color: rgba(0, 0, 0, 0.1);
-            z-index: -1;
-            white-space: nowrap;
-            user-select: none;
-            pointer-events: none;
-        }
-        body {
-            background-color: #f8f5f0;
-            font-family: 'IM Fell English', serif;
-            text-align: center;
-            padding: 50px;
-        }
-        .chapter-container {
-            width: 90%;
-            margin: auto;
-            max-width: 800px;
-            padding: 20px;
-            border: 3px solid #d4a373;
-            border-radius: 15px;
-            background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-            position: relative;
-        }
-        h1 {
-            font-family: 'Indie Flower', cursive;
-            font-size: 2.8em;
-            color: #6b4226;
-            position: relative;
-        }
-        h1::after {
-            content: ' 💫';
-            font-size: 1.2em;
-            position: absolute;
-            right: -20px;
-        }
-        p {
-            font-size: 1.2em;
-            color: #4a3220;
-            text-align: left;
-        }
-        .decorative-line {
-            width: 50%;
-            height: 5px;
-            background: linear-gradient(to right, transparent, #d4a373, transparent);
-            margin: 20px auto;
-        }
-        .icon {
-            width: 80px;
-            position: absolute;
-            top: -40px;
-            right: 10px;
-        }
-      @keyframes floatEffect {
-            0% { transform: translate(-50%, -50%) translateY(0); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
-            100% { transform: translate(-50%, -50%) translateY(0); }
-        }
-
-      @media (max-width: 600px) { 
-            .chapter-container {
-                width: 95%;  /* Make it wider for mobile */
-                padding: 15px; /* Reduce padding */
-            }
-            .text-watermark {
-            font-size: 8vw; /* Increase size on smaller screens */
-            }
-            h1 {
-                font-size: 1.5em; /* Shrink title */
-            }
-            p {
-                font-size: 1em; /* Adjust text size */
-            }
-}
-
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-  <div class="text-watermark">The Girl and The Meowgic <br/>by Nea Lunabelle</div>
+    <div class="text-watermark">The Girl and The Meowgic <br/>by Nea Lunabelle</div>
     <div class="chapter-container">
-        <h1>Chapter 1: The Enchanted Encounter</h1>
-        <img src="https://cdn-icons-png.flaticon.com/256/18548/18548573.png" alt="whiskers" class="icon">
-        <div class="decorative-line"></div>
-        <p>A little girl skipped through the forest, her shiny Mary Janes making soft crunching sounds on the underbrush...</p>
-        <p>Celia had a strange feeling—like something was following her. She glanced over her shoulder but saw only flickering shadows...</p>
-        <p>"HA!" she shouted.</p>
-        <p>A sleek tuxedo cat leaped into the air, startled.</p>
-        <p>"Oh, it's a kitty. Aw, hello there..." Celia cooed.</p>
-        <p>The cat shook itself and huffed. "My goodness, child, you startled me!"</p>
-        <p>Celia gasped. "DID YOU JUST TALK?!"</p>
-        
+        <!-- <h1>Chapter 1: The Enchanted Encounter</h1>
+        -->
+        <!-- <img src="https://cdn-icons-png.flaticon.com/256/18548/18548573.png" alt="cat" class="icon">
+        -->
+        <!-- <div class="decorative-line"></div>
+        -->
+        <div id="chapter-content"></div>
     </div>
+    <script>
+        fetch('chapter-1.md')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('chapter-content').innerHTML = marked.parse(text);
+            })
+            .catch(error => {
+                document.getElementById('chapter-content').innerHTML = '<p>Could not load chapter.</p>';
+                console.error(error);
+            });
+    </script>
+    
 </body>
 </html>
-

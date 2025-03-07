@@ -7,6 +7,11 @@ Celia, a curious little witch, embarks on a whimsical journey filled with playfu
 
 ## 📖 Read the Story
 You can read the story **chapter by chapter** online:
+
+# The Girl and The Meowgic
+
+## Table of Contents
+1. [Chapter 1: The Enchanted Encounter](chapter-1.md)
 - **[Chapter 1: The Enchanted Encounter](https://nesiac11.github.io/celia-adventure/chapter.html?id=1)**
 - **[Chapter 2: The Pufflings' Mischief](https://nesiac11.github.io/celia-adventure/chapter.html?id=2)**
 - **[Chapter 3: The Forest Gate Mystery](https://nesiac11.github.io/celia-adventure/chapter.html?id=3)**

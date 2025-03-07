@@ -1,0 +1,91 @@
+
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=IM+Fell+English&display=swap');
+
+.text-watermark {
+    animation: floatEffect 3s ease-in-out infinite;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4vw;
+    color: rgba(0, 0, 0, 0.1);
+    z-index: -1;
+    white-space: nowrap;
+    user-select: none;
+    pointer-events: none;
+}
+
+body {
+    background-color: #f8f5f0;
+    font-family: 'IM Fell English', serif;
+    text-align: center;
+    padding: 50px;
+}
+
+.chapter-container {
+    width: 90%;
+    margin: auto;
+    max-width: 800px;
+    padding: 20px;
+    border: 3px solid #d4a373;
+    border-radius: 15px;
+    background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+    position: relative;
+}
+
+h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2.8em;
+    color: #6b4226;
+    position: relative;
+}
+
+h1::after {
+    content: ' 💫';
+    font-size: 1.2em;
+    position: absolute;
+    right: -20px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #4a3220;
+    text-align: left;
+}
+
+.decorative-line {
+    width: 50%;
+    height: 5px;
+    background: linear-gradient(to right, transparent, #d4a373, transparent);
+    margin: 20px auto;
+}
+
+.icon {
+    width: 80px;
+    position: absolute;
+    top: -40px;
+    right: 10px;
+}
+
+@keyframes floatEffect {
+    0% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+    100% { transform: translate(-50%, -50%) translateY(0); }
+}
+
+@media (max-width: 600px) { 
+    .chapter-container {
+        width: 95%;
+        padding: 15px;
+    }
+    .text-watermark {
+        font-size: 8vw;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1em;
+    }
+}
