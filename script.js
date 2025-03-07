@@ -44,8 +44,9 @@ function navigateChapter(direction) {
     } else if (direction === "prev" && currentIndex > 0) {
         window.location.href = `index.html?chapter=${chapters[currentIndex - 1]}`;
     } else if (direction === "index") {
-        window.location.href = "index.html"; // Change this if your chapter list is a different page
+        window.location.href = "index.html?chapter=content/homepage.md"; 
     }
+    
 }
 
 let touchStartX = 0;

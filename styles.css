@@ -71,21 +71,42 @@ p {
 .navigation {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    align-items: center;
     margin-top: 20px;
+    gap: 15px;
 }
 
-.navigation button {
-    background-color: #f4d03f;
-    border: none;
-    padding: 10px 15px;
+.nav-button {
+    padding: 10px 18px;
+    border: 2px solid #b08968; /* Warm brown border */
+    background-color: rgba(234, 215, 189, 0.8); /* Soft beige */
+    color: #5a3e2b; /* Deep brown for readability */
     font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 12px;
     cursor: pointer;
-    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 500;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navigation button:hover {
-    background-color: #f1c40f;
+.nav-button:hover {
+    background-color: rgba(234, 215, 189, 1); /* Slightly deeper beige on hover */
+    transform: translateY(-2px); /* Floating effect */
+    box-shadow: 0px 6px 12px rgba(186, 137, 84, 0.3); /* Warm golden-brown glow */
+}
+
+.nav-button:disabled {
+    background-color: rgba(234, 215, 189, 0.5);
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+.nav-button:focus {
+    outline: 2px solid rgba(186, 137, 84, 0.6); /* Warm golden outline */
 }
 
 
