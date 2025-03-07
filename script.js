@@ -44,7 +44,7 @@ function navigateChapter(direction) {
     } else if (direction === "prev" && currentIndex > 0) {
         window.location.href = `index.html?chapter=${chapters[currentIndex - 1]}`;
     } else if (direction === "index") {
-        window.location.href = "index.html?chapter=content/homepage.md"; 
+        window.location.href = "index.html?chapter=homepage.md";
     }
     
 }
