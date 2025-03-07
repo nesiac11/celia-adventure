@@ -116,6 +116,15 @@ p {
     100% { transform: translate(-50%, -50%) translateY(0); }
 }
 
+@media (max-width: 768px) { 
+    .navigation-buttons button {
+        padding: 8px 12px; /* Reduce button padding */
+        font-size: 14px; /* Make text smaller */
+        width: auto; /* Adjust width based on text */
+        min-width: 80px; /* Prevent too small buttons */
+    }
+}
+
 @media (max-width: 600px) { 
     .chapter-container {
         width: 95%;
