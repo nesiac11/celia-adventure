@@ -23,18 +23,6 @@ body {
     padding: 50px;
 }
 
-.chapter-container {
-    display: block;
-    width: 90%;
-    max-width: 800px;
-    margin: auto;
-    max-width: 800px;
-    padding: 20px;
-    border: 3px solid #d4a373;
-    border-radius: 15px;
-    background: url('https://www.transparenttextures.com/patterns/aged-paper.png');
-}
-
 .content-container {
     display: block;
     max-width: 800px;
