@@ -19,6 +19,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const chapter = urlParams.get('chapter') || "content/homepage.md"; // Default to homepage
     loadContent(chapter);
+
+    const navButtons = document.querySelector(".navigation");
+    
+    // Hide navigation buttons if on homepage
+    if (chapter === "content/homepage.md") {
+        navButtons.style.display = "none";
+    } else {
+        navButtons.style.display = "flex";
+    }
+
+    // Add event listeners to navigation buttons
+    document.getElementById("prevChapter").addEventListener("click", (e) => {
+        e.preventDefault();
+        navigateChapter("prev");
+    });
+
+    document.getElementById("nextChapter").addEventListener("click", (e) => {
+        e.preventDefault();
+        navigateChapter("next");
+    });
+
+    document.getElementById("chapterIndex").addEventListener("click", (e) => {
+        e.preventDefault();
+        navigateChapter("index");
+    });
+
+    // Disable buttons when necessary
+    const currentIndex = chapters.indexOf(chapter);
+
+    if (currentIndex === 0) {
+        document.getElementById("prevChapter").style.pointerEvents = "none";
+        document.getElementById("prevChapter").style.opacity = "0.5";
+    }
+    if (currentIndex === chapters.length - 1) {
+        document.getElementById("nextChapter").style.pointerEvents = "none";
+        document.getElementById("nextChapter").style.opacity = "0.5";
+    }
 });
 
 const chapters = [
@@ -27,8 +64,7 @@ const chapters = [
     "chapters/chapter-3.md",
     "chapters/chapter-4.md",
     "chapters/chapter-5.md"
-
-]; // Add all your chapters here
+];
 
 function getCurrentChapter() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -44,9 +80,8 @@ function navigateChapter(direction) {
     } else if (direction === "prev" && currentIndex > 0) {
         window.location.href = `index.html?chapter=${chapters[currentIndex - 1]}`;
     } else if (direction === "index") {
-        window.location.href = "index.html?chapter=homepage.md";
-    }
-    
+        window.location.href = "index.html?chapter=content/homepage.md";
+    } 
 }
 
 let touchStartX = 0;
@@ -70,22 +105,3 @@ function handleSwipe() {
         navigateChapter("prev"); // Swipe right → Previous Chapter
     }
 }
-
-
-// Run when the page loads
-document.addEventListener("DOMContentLoaded", () => {
-    const currentChapter = getCurrentChapter();
-    const navigationMenu = document.getElementById("chapterNavigation");
-
-    if (currentChapter && navigationMenu) {
-        navigationMenu.style.display = "flex"; // Show navigation
-        const currentIndex = chapters.indexOf(currentChapter);
-
-        if (currentIndex === 0) {
-            document.getElementById("prevChapter").disabled = true;
-        }
-        if (currentIndex === chapters.length - 1) {
-            document.getElementById("nextChapter").disabled = true;
-        }
-    }
-});
